@@ -1,0 +1,72 @@
+[build-system]
+requires = [
+  "setuptools >= 61.0.0", 
+  "setuptools_scm[toml]>=6.2",
+  "wheel",
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "multi_region_s3_crr_source"
+description = "Multi region S3 CRR Source Construct."
+authors = [
+    {name = "Sergei Markin", email = "smarkin@aligntech.com"},
+]
+requires-python='>=3.11'
+dependencies=[
+  "aws-cdk-lib==2.93.0",
+  "constructs>=10.0.0,<11.0.0",
+]
+version = "0.0.1"
+readme = "README.md"
+classifiers=[
+  "Development Status :: 5 - Production/Stable",
+  "Intended Audience :: Developers",
+#   "License :: OSI Approved :: MIT License",
+  "Natural Language :: English",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+]
+# keywords = ["django_microsoft_auth"]
+# license = {file = "LICENSE"}
+
+[project.optional-dependencies]
+dev = [
+    "build>=0.10.0"
+]
+test = [
+    "pytest==6.2.5"
+]
+
+[tool.flake8]
+exclude = ".eggs, .git, .tox, build"
+ignore = "C812, W503, C816, C815, B008"
+max-line-length = 100
+
+[tool.pylint]
+max-line-length = 100
+disable = [
+    "C0103", # (invalid-name)
+    "C0114", # (missing-module-docstring)
+    "C0115", # (missing-class-docstring)
+    "C0116", # (missing-function-docstring)
+    "R0903", # (too-few-public-methods)
+    "R0913", # (too-many-arguments)
+    "W0105", # (pointless-string-statement)
+]
+
+# [tool.pytest.ini_options]
+# addopts = "--color=yes"
+
+
+# [project.scripts]
+# my-script = "my_package.module:function"
+
+# ... other project metadata fields as specified in:
+#     https://packaging.python.org/en/latest/specifications/declaring-project-metadata/
+
+# https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html
+# https://til.simonwillison.net/python/pyproject
